@@ -17,6 +17,9 @@ case "$(uname -s)" in
 esac
 
 ARCH="$(uname -m)"
+if [[ "$ARCH" == "x86_64" ]] ; then
+    ARCH=amd64
+fi
 
 BINPATH="${SCRIPT_DIR}/../tmp/${NAME}_${VERSION}"
 
