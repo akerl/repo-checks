@@ -25,13 +25,13 @@ src.select{ |node| node.is_a?(Psych::Nodes::Scalar) && %w(on off).include?(node.
 
 contents = src.to_ruby
 
-if contents['on']['pull_request']
+if contents['on'].include? 'pull_request'
   contents['on'].delete('pull_request')
-  contents['on']['pull_request_target'] == {}
+  contents['on']['pull_request_target'] = nil
 end
 
-if contents['on']['push'] == {}
-  contents['on']['push'] == { 'branches' => ['main'] }
+if contents['on'].include? 'push'
+  contents['on']['push'] = { 'branches' => ['main'] }
 end
 
 File.open(file, 'w') do |fh|
