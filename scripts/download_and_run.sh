@@ -18,12 +18,12 @@ esac
 
 ARCH="$(uname -m)"
 
-PATH="${SCRIPT_DIR}/../tmp/${NAME}"
+BINPATH="${SCRIPT_DIR}/../tmp/${NAME}_${VERSION}"
 
-if [[ ! -e "$PATH" ]] ; then
+if [[ ! -e "$BINPATH" ]] ; then
     mkdir -p "${SCRIPT_DIR}/../tmp"
-    curl -sLo "$PATH" "https://github.com/${ORG}/${NAME}/releases/download/${VERSION}/${NAME}_${OS}_${ARCH}"
-    chmod a+x "${PATH}"
+    curl -sLo "$BINPATH" "https://github.com/${ORG}/${NAME}/releases/download/${VERSION}/${NAME}_${OS}_${ARCH}"
+    chmod a+x "${BINPATH}"
 fi
 
-"$PATH" "$1"
+"$BINPATH" "$1"
