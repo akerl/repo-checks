@@ -4,7 +4,7 @@ set -euo pipefail
 
 export ORG=akerl
 export NAME=cultivator-puppetfile
-export VERSION=v0.0.4
+export VERSION=v0.0.5
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 

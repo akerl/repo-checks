@@ -31,7 +31,7 @@ if contents['on'].include? 'pull_request'
 end
 
 if contents['on'].include? 'push'
-  contents['on']['push'] = { 'branches' => ['main'] }
+  contents['on']['push'] = { 'branches' => ['main'], 'tags' => ['**'] }
 end
 
 File.open(file, 'w') do |fh|
